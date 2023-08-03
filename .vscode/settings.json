@@ -1,0 +1,11 @@
+{
+  "eslint.codeActionsOnSave.rules": null,
+  "eslint.options": {},
+  "eslint.validate": [
+    
+  ],
+  "files.associations": {
+    "*.css": "css"
+  },
+  "material-icon-theme.files.associations": {}
+}
