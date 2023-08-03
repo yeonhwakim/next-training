@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  border: 1px solid salmon;
+  padding: 4px;
+}
+
+.nav a {
+  padding: 0 8px;
+}
