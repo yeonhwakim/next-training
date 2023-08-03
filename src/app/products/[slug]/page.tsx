@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 type Props = {
   params: {
     slug: string
@@ -5,6 +7,10 @@ type Props = {
 }
 
 function SlugPage({params}: Props) {
+  if(params.slug === 'nothing') {
+    return notFound()
+  }
+  
   return (
     <h1>{params.slug} 제품 설명 페이지!</h1>
   );
