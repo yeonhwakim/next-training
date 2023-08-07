@@ -7,6 +7,8 @@ type Props = {
   };
 };
 
+export const revalidate = 3;
+
 export async function generateMetadata({ params: { slug } }: Props) {
   const product = await getProduct(slug);
   return {
