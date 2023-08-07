@@ -7,27 +7,29 @@ type Props = {
   };
 };
 
-export function generateMetadata({ params: { slug } }: Props) {
+export async function generateMetadata({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
   return {
-    title: `${slug} 제품`,
-    description: `${slug} 제품 상세 페이지입니다.`,
+    title: `${product?.name} 제품`,
+    description: `${product?.name} 제품 상세 페이지입니다.`,
   };
 }
 
-function SlugPage({ params: { slug } }: Props) {
-  const product = getProduct(slug);
+async function ProductPage({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
 
   if (!product) {
     notFound();
   }
 
-  return <h1>{product} 제품 설명 페이지!</h1>;
+  return <h1>{product.name} 제품 설명 페이지!</h1>;
 }
 
-export default SlugPage;
+export default ProductPage;
 
-export function generateStaticParams() {
-  const products = getProducts();
+// SSG
+export async function generateStaticParams() {
+  const products = await getProducts();
 
-  return products.map((product) => ({ slug: product }));
+  return products.map((product) => ({ slug: product.id }));
 }
