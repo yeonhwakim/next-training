@@ -3,6 +3,8 @@ import { getProducts } from "@/services/products";
 import Link from "next/link";
 
 import styles from "./page.module.css";
+import { Suspense } from "react";
+import ProductsLoading2 from "./loading2";
 
 // export const revalidate = 3;
 
@@ -25,6 +27,7 @@ async function ProductsPage() {
   });
   const ssrData = await ssr.json();
   const ssrText = ssrData.data[0];
+
   return (
     <>
       <h1>제품 소개 페이지!</h1>
@@ -35,9 +38,11 @@ async function ProductsPage() {
           </li>
         ))}
       </ul>
-      <p className={styles.article}>{ssgText}</p>
-      <p className={styles.article}>{isrText}</p>
-      <p className={styles.article}>{ssrText}</p>
+      <Suspense fallback={<ProductsLoading2 />}>
+        <p className={styles.article}>{ssgText}</p>
+        <p className={styles.article}>{isrText}</p>
+        <p className={styles.article}>{ssrText}</p>
+      </Suspense>
       <MeowArticle />
     </>
   );
