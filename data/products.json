@@ -2,16 +2,19 @@
   {
     "id": "12345",
     "name": "모자",
-    "price": 3000
+    "price": 3000,
+    "image": "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9"
   },
   {
     "id": "12346",
     "name": "티셔츠",
-    "price": 10000
+    "price": 10000,
+    "image": "https://images.unsplash.com/photo-1523381294911-8d3cead13475"
   },
   {
     "id": "12347",
-    "name": "슬랙스",
-    "price": 50000
+    "name": "신발",
+    "price": 50000,
+    "image": "https://images.unsplash.com/photo-1549298916-f52d724204b4"
   }
 ]

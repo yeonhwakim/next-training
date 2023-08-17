@@ -1,4 +1,5 @@
 import { getProduct, getProducts } from "@/services/products";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -24,7 +25,13 @@ async function ProductPage({ params: { slug } }: Props) {
     notFound();
   }
 
-  return <h1>{product.name} 제품 설명 페이지!</h1>;
+  return (
+    <>
+      <h1>{product.name} 제품 설명 페이지!</h1>
+      <Image src={product.image} alt={product.name} width={400} height={400} />
+      <p>{product.price}원</p>
+    </>
+  );
 }
 
 export default ProductPage;
