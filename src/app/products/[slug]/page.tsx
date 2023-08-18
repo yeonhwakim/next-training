@@ -1,6 +1,7 @@
+import GoBackButton from "@/components/GoBackButton";
 import { getProduct, getProducts } from "@/services/products";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -22,7 +23,8 @@ async function ProductPage({ params: { slug } }: Props) {
   const product = await getProduct(slug);
 
   if (!product) {
-    notFound();
+    redirect("/products");
+    // notFound();
   }
 
   return (
@@ -30,6 +32,7 @@ async function ProductPage({ params: { slug } }: Props) {
       <h1>{product.name} 제품 설명 페이지!</h1>
       <Image src={product.image} alt={product.name} width={400} height={400} />
       <p>{product.price}원</p>
+      <GoBackButton />
     </>
   );
 }
