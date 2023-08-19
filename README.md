@@ -14,4 +14,4 @@ pnpm dev
 
 ## deploy
 
-20230819 [next_Training](https://next-training-tau.vercel.app/products)
+20230819 [next_training](https://next-training-tau.vercel.app/products)
